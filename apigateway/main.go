@@ -29,7 +29,7 @@ func main() {
 	ctx := context.Background()
 	svc := new(frontendServer)
 
-	mustMapEnv(&svc.getNewIdSvcAddr, "GET_NEW_ID_SERVICE_ADDR")
+	mustMapEnv(&svc.getNewIdSvcAddr, "NEW_ID_SERVICE_ADDR")
 
 	mustConnGRPC(ctx, &svc.getNewIdSvcConn, svc.getNewIdSvcAddr)
 
