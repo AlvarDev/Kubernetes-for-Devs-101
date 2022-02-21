@@ -1,0 +1,19 @@
+apiVersion: skaffold/v2beta27
+kind: Config
+metadata:
+  name: kubernetes-for-devs--
+build:
+  artifacts:
+  - image: gcr.io/architect-demos/apigateway
+    context: apigateway
+    docker:
+      dockerfile: Dockerfile
+  - image: gcr.io/architecture-demos/newid
+    context: newid
+    docker:
+      dockerfile: Dockerfile
+deploy:
+  kubectl:
+    manifests:
+    - kubernetes-manifests/apigateway.yaml
+    - kubernetes-manifests/newid.yaml
