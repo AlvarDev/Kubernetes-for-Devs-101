@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option go_package = "remianders/protos";
+
+package remainderprotos;
+
+service ReminderService {
+	rpc GetNewId(GetNewIdRequest) returns (GetNewIdResponse);
+}
+
+message Remainder {
+	int64 remainderId = 1;
+	string remainder = 2;
+}
+
+message GetNewIdRequest{
+	string remainder = 1;
+}
+
+message GetNewIdResponse{
+	Remainder remainder = 1;
+}
